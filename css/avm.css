@@ -1,0 +1,120 @@
+/*ワークスペースの位置調整*/
+.move_space {
+    position: relative;
+    width: 700px;
+    display: block;
+    float:right;
+}
+.workspace{
+  display: inline-block;
+}
+
+.next_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+.next_btn:active {/*ボタンを押したとき*/
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+
+#execute_btn{
+  display: inline-block;
+  font-size: 120%;
+  padding: 1em 2em;
+  text-decoration: none;
+  background: #32cd32;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+#now{
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #ff6347;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+
+
+/*問題題材の位置調整*/
+.AVM {
+    position: absolute;
+    left: 250px;
+    bottom: 100px;
+}
+
+.coin{
+  position: absolute;
+  right:120px;
+  top:80px;
+}
+
+.change{
+  position: absolute;
+  right:540px;
+  top:250px;
+}
+
+.not_change{
+  position: absolute;
+  right:450px;
+  top:220px;
+}
+
+#push{
+  position: absolute;
+  right:180px;
+  top:150px;
+}
+#drink{
+  position: absolute;
+  right:180px;
+  top:150px;
+}
+#not_change_visi{
+  position: relative;
+}
+
+#not_change_text{
+  position: absolute;
+  top:70px;
+  left:70px;
+}
+
+#change_visi{
+  position: relative;
+}
+
+#change_text{
+  position: absolute;
+  top:70px;
+  left:70px;
+}
+
+#bar{
+  position: absolute;
+  right:480px;
+  top:50px;
+}
+
+#coin_visi{
+  position: relative;
+}
+
+#coin_text{
+  position: absolute;
+  top:70px;
+  left:70px;
+}

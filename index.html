@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset = "utf-8">
+  <title>タウンコード-トップ</title>
+  <link rel="stylesheet" href="css/itiran.css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script>
+        $(function(){
+          // スムーズスクロール
+          $('a[href^="#"]').click(function() {
+            var speed = 400;
+            var href= $(this).attr("href");
+            var target = $(href == "#" || href == "" ? 'html' : href);
+            var position = target.offset().top;
+            $('body,html').animate({scrollTop:position}, speed, 'swing');
+            return false;
+          });
+        });
+  </script>
+
+  <script>
+  function imageOff(name){
+    document.getElementById(name).style.visibility = "hidden";
+  }
+
+  function imageOn(name){
+    document.getElementById(name).style.visibility = "visible";
+  }
+  </script>
+
+</head>
+
+
+<body>
+  <header id="header">
+    <h1>ようこそタウンコードへ！</h1>
+    <nav>
+      <span><a href="#top"class="menu">トップ</a></span>
+      <span><a href="#how_to"class="menu">遊び方</a></span>
+      <span><a href="#about"class="menu">このサイトについて</a></span>
+    </nav>
+  </header>
+
+<main>
+<article id="top">
+  <section>
+    <div id="wrapper">
+      <div class="link1">
+          <a href="avm/avm_question1.html">
+            <img src="img/AutoVenderMachine.png" width="200" height="300">
+            <img src="img/link1.png" id="l1" width="300" height="400">
+          </a>
+      </div>
+      <div class="link2">
+          <a href="kaisatu/kaisatu_question1.html">
+            <img src="img/kaisatu_open.png" width="250" height="300">
+            <img src="img/link2.png" id="l2" width="300" height="400">
+          </a>
+      </div>
+      <div class="link3">
+          <a href="light/light_question1.html">
+            <img src="img/all_off.png" width="160" height="280">
+            <img src="img/link3.png" id="l3" width="300" height="400">
+          </a>
+      </div>
+  </div>
+  <script>
+
+  </script>
+  </section>
+</article>
+
+<article id="how_to">
+  <h2>遊び方</h2>
+
+</article>
+
+<article id="about">
+  <h2>このサイトについて</h2>
+  <h3>この作品について</h3>
+  <br>
+  <section>
+    <p>このタウンコードは「プログラミング初心者の小学校教員向けのプログラミング入門教材」になります。</p>
+    <p>プログラミングとはなにかを少しでもわかってもらえるよう、</p>
+    <p>ブロックをつかった簡単なプログラミングを体験できるサイトになります。</p>
+    <p>また、「どこまでできるようになればいいの？」「生徒の成績はどんな基準で評価すればいいの？」といった</p>
+    <p>疑問にも添えるよう、後述する能力評価基準を元に問題作成しました。</p>
+  </section>
+  <section>
+    <h3>背景</h3>
+    <br>
+    <p>2020年に小学校で本格的にプログラミング教育が始まる中、</p>
+    <p>プログラミングがどのようなものかわからず不安を抱えている方は多くいます。</p>
+    <p>どんな教材を準備すればいいの？プログラミングってよくわからない！どうやって成績評価するの？</p>
+    <p>そういった疑問に対して一つのアンサーになるようなサイトになればと思います。</p>
+  </section>
+  <section>
+    <h3>評価基準について</h3>
+    <br>
+    <a href="http://progstd.org/">プログラミングで育成する資質・能力の評価規準</a>
+    <blockquote>
+      株式会社ベネッセコーポレーションとNPO法人CANVASは共にプログラミング（「プログラミング的思考」の育成に資する学習活動）
+      で育成を目指す資質・能力、および、それを評価するための規準作りに取り組んでいます。(プログラミングで育成する資質・能力の評価規準運営委員会ホームページより引用)
+    </blockquote>
+    <p>本サイトはこちらの評価基準をもとに作成されています。</p>
+    <p>こちらの評価基準が求める技能を、教員の皆様にも取得いただくために作られております。</p>
+    <p>プログラミング技術ってどこまで習得すればいいの？</p>
+    <p>実際生徒に教えていくにあたってどう評価していけばいいの？</p>
+    <p>そのような疑問を持っている方はぜひ、こちらの評価基準についても参考にしていただければと思います。</p>
+  </section>
+</article>
+
+<p><a href="#header" id="go_top">トップへ</a></p>
+</main>
+
+  <footer>
+    <p>©️2018 タウンコード</p>
+  </footer>
+
+
+</body>
+
+</html>

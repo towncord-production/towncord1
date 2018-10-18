@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/lightbox.js"></script>
+
+  <script>
+    window.onload = function(){
+      $("#tutorial").trigger("click");
+    }
+  </script>
+
+  <script src = "../../blockly_compressed.js"></script>
+  <script src = "../../blocks_compressed.js"></script>
+  <script src = "../../javascript_compressed.js"></script>
+  <script src = "../../msg/js/ja.js"></script>
+  <script src = "../../blocks/avm_block.js"></script>
+  <script src = "../../generators/javascript/avm.js"></script>
+  <script src = "../../generators/javascript/logic.js"></script>
+
+  <link rel="stylesheet" href="../css/avm.css">
+  <link rel="stylesheet" href="../lightbox.css">
+
+  <title>自分で作ったやつ</title>
+
+</head>
+
+<body>
+    <a href="../img/tutorial1.png" data-lightbox="image-1" id="tutorial"></a>
+
+    <p>
+      <button onclick="runCode()" class="next_btn" id="execute_btn">実行する▶︎</button>
+      <a href="avm_question1.html" class="next_btn">1</a>
+      <a href="#" class="next_btn" id="now">2</a>
+      <a href="avm_question3.html" class="next_btn">3</a>
+      <a href="avm_question4.html" class="next_btn">4</a>
+      <a href="avm_question5.html" class="next_btn">5</a>
+      <a href="../index.html" class="next_btn">トップへ</a>
+      <span>早速実践！好きな金額を自動販売機に入れてランプがつくようにしましょう！</span>
+    </p>
+
+<div class="workspace">
+
+  <div id="blocklyDiv" style="height:500px; width:500px;"></div>
+
+  <xml id="toolbox" style="display: none">
+     <category name= "はじめとおわり" colour="60">
+       <block type="start"></block>
+       <block type="end"></block>
+     </category>
+    <category name = "コントロール" colour="120">
+      <block type="controls_if"></block>
+    </category>
+    <category name="数" colour="10">
+      <block type="math_number">
+        <field name="NUM">123</field>
+      </block>
+    </category>
+    <category name="機能" colour="230">
+      <block type="money"></block>
+      <block type="light_up"></block>
+      <block type="can_buy"></block>
+    </category>
+  </xml>
+
+
+</div>
+
+<div class="workspace">
+<div class="move_space">
+  <img src ="../img/frame.png" name="frame" width=700 height=500>
+  <img src ="../img/AutoVenderMachine.png" alt="AVM" width="150" height="300" class="AVM" id="AVM1">
+  <img src ="../img/AutoVenderMachine2.png" alt="AVM" width="150" height="300" class="AVM" id="AVM2">
+  <img src ="../img/AutoVenderMachine3.png" alt="AVM" width="150" height="300" class="AVM" id="AVM3">
+  <div class="coin">
+    <img src ="../img/coin.png" alt="coin" width="100" height="100" id="coin_visi">
+    <p id="coin_text"></p>
+  </div>
+  <img src ="../img/push.png" alt="push" width="180" height="200" id="push">
+  <div class="not_change">
+    <img src ="../img/not_change.png" alt="not_change" width="120" height="120" id="not_change_visi">
+    <p id="not_change_text"></p>
+  </div>
+  <img src ="../img/drink.png" alt="drink" width="180" height="200" id="drink">
+  <img src ="../img/bar.png" alt="bar" width="180" height="200" id="bar">
+  <div class="change">
+    <img src ="../img/change.png" alt="change" width="120" height="120" id="change_visi">
+    <p id ="change_text"></p>
+  </div>
+
+
+  <script>
+  //初期化
+  var time = 1000;
+  var yen = 0;
+  var buy_flag = 0;
+  var cg = 0;
+  var not_change = 0;
+  var clear_flag = 0;
+  var start_flag = 0;
+  var end_flag = 0;
+
+function imageOff(name){
+  document.getElementById(name).style.visibility = "hidden";
+}
+
+function imageOn(name){
+  document.getElementById(name).style.visibility = "visible";
+}
+
+  imageOff("coin_visi");
+  imageOff("AVM2");
+  imageOff("AVM3");
+  imageOff("push");
+  imageOff("not_change_visi");
+  imageOff("change_visi");
+  imageOff("drink");
+
+
+  //コード読み込み設定
+  var workspace = Blockly.inject('blocklyDiv',{
+    toolbox:document.getElementById('toolbox'),
+  });
+  Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),workspace);
+
+  //コード実行
+  function runCode() {
+    imageOff("coin_visi");
+    imageOn("AVM1");
+    imageOff("AVM2");
+    imageOff("AVM3");
+    time = 1000;
+    yen = 0;
+    buy_flag = 0;
+    cg = 0;
+    not_change = 0;
+    clear_flag = 0;
+    start_flag = 0;
+    end_flag = 0;
+    window.LoopTrap = 1000;
+    Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    var pattern1 = "start_flag=1;"
+    var pattern2 = "end_flag=1;"
+    console.log(code);
+      if(code.indexOf(pattern1) > -1 && code.indexOf(pattern2) > -1){
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        try {
+          eval(code);
+        } catch (e) {
+          alert(e);
+        }
+      }else{
+        alert("はじめブロックとおわりブロックをつけましょう！")
+      }
+
+    }
+
+  //ブロック関数
+  function money(){
+    setTimeout(function(){
+      imageOn("coin_visi");
+      document.getElementById("coin_text").innerHTML="¥"+yen;
+    },time);
+    time+=1000;
+  }
+
+  function give_off(){
+    setTimeout(function(){
+      imageOn("not_change_visi");
+      document.getElementById("not_change_text").innerHTML="¥"+not_change;
+    },time);
+    time+=1000;
+  }
+
+  function light_up(){
+    setTimeout(function(){
+      if(buy_flag==2){
+        imageOff("AVM1");
+        imageOff("AVM2");
+        imageOn("AVM3");
+        clear_flag = 1;
+      }
+      if(buy_flag==1){
+        imageOff("AVM1");
+        imageOn("AVM2");
+        imageOff("AVM3");
+        clear_flag = 1;
+      }
+    },time);
+    time+=1000;
+  }
+
+  function push_button(){
+    setTimeout(function(){
+      imageOn("push");
+    },time);
+    time+=1000;
+  }
+
+  function drink_get(){
+    setTimeout(function(){
+      imageOff("push");
+      imageOn("drink");
+    },time);
+    time+=1000;
+  }
+
+  function light_off(){
+    setTimeout(function(){
+      imageOn("AVM1");
+      imageOff("AVM2");
+      imageOff("AVM3");
+    },time);
+    time+=1000;
+  }
+
+  function change(){
+    setTimeout(function(){
+      imageOn("change_visi");
+      document.getElementById("change_text").innerHTML="¥"+cg;
+    },time);
+    time+=1000;
+  }
+
+  //クリア処理
+  function end(){
+    setTimeout(function(){
+      if(clear_flag==1){
+        clear();
+      }else{
+        not_clear();
+      }
+    },time);
+  }
+
+  function clear(){
+    if(window.confirm("クリアおめでとう!\nランプはいくつ点灯しましたか？\n"
+    +"実は金額を変えるとちょっと結果が変わります…\nそれでは次の問題に行ってみましょう！")){
+      location.href="avm_question3.html";
+    }
+  }
+
+  function not_clear(){
+    alert("もう一度やりなおしてランプを点灯してみましょう！");
+  }
+  </script>
+
+</body>
+
+</html>

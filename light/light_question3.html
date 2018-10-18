@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script src = "../../blockly_compressed.js"></script>
+  <script src = "../../blocks_compressed.js"></script>
+  <script src = "../../javascript_compressed.js"></script>
+  <script src = "../../msg/js/ja.js"></script>
+  <script src = "../../blocks/light_block.js"></script>
+  <script src = "../../generators/javascript/light.js"></script>
+  <script src = "../../generators/javascript/logic.js"></script>
+
+  <link rel="stylesheet" href="../css/light.css">
+
+  <title>自分で作ったやつ</title>
+
+</head>
+
+<body>
+
+    <p>
+      <button onclick="runCode()" class="next_btn" id="execute_btn">実行する▶︎</button>
+      <a href="light_question1.html" class="next_btn">1</a>
+      <a href="light_question2.html" class="next_btn">2</a>
+      <a href="#" class="next_btn" id="now">3</a>
+      <a href="light_question4.html" class="next_btn">4</a>
+      <a href="light_question5.html" class="next_btn">5</a>
+      <a href="../index.html" class="next_btn">トップへ</a>
+      <span>普通の信号機は青になった後、また赤になります！ためしに３回赤→青の順に光らせてみましょう！</span>
+    </p>
+
+<div class="workspace">
+
+  <div id="blocklyDiv" style="height:500px; width:500px;"></div>
+
+  <xml id="toolbox" style="display: none">
+     <category name= "はじめとおわり" colour="60">
+       <block type="start"></block>
+       <block type="end"></block>
+     </category>
+    <category name = "コントロール" colour="120">
+      <block type="controls_if"></block>
+      <block type="controls_repeat_ext"></block>
+    </category>
+    <category name="数" colour="10">
+      <block type="math_number">
+        <field name="NUM">123</field>
+      </block>
+    </category>
+    <category name="機能" colour="230">
+      <block type="red"></block>
+      <block type="blue"></block>
+    </category>
+  </xml>
+
+
+</div>
+
+<div class="workspace">
+<div class="move_space">
+  <img src ="../img/frame.png" name="frame" width=700 height=500>
+  <img src ="../img/all_off.png" alt="off" width="150" height="300" class="light" id="off">
+  <img src ="../img/red.png" alt="red" width="150" height="300" class="light" id="red">
+  <img src ="../img/blue.png" alt="blue" width="150" height="300" class="light" id="blue">
+  </div>
+
+
+  <script>
+  //初期化
+  var time = 1000;
+  var clear_flag = 0;
+  var start_flag = 0;
+  var end_flag = 0;
+
+function imageOff(name){
+  document.getElementById(name).style.visibility = "hidden";
+}
+
+function imageOn(name){
+  document.getElementById(name).style.visibility = "visible";
+}
+
+  imageOff("red");
+  imageOff("blue");
+
+  //コード読み込み設定
+  var workspace = Blockly.inject('blocklyDiv',{
+    toolbox:document.getElementById('toolbox'),
+  });
+  Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),workspace);
+
+  //コード実行
+  function runCode() {
+    imageOff("red");
+    imageOff("blue");
+
+    time = 1000;
+    clear_flag = 0;
+    start_flag = 0;
+    end_flag = 0;
+
+    window.LoopTrap = 1000;
+    Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    var pattern1 = "start_flag=1;"
+    var pattern2 = "end_flag=1;"
+    console.log(code);
+      if(code.indexOf(pattern1) > -1 && code.indexOf(pattern2) > -1){
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        try {
+          eval(code);
+        } catch (e) {
+          alert(e);
+        }
+      }else{
+        alert("はじめブロックとおわりブロックをつけましょう！")
+      }
+
+    }
+
+  //ブロック関数
+  function red(){
+    setTimeout(function(){
+      imageOn("red");
+      imageOff("blue");
+      clear_flag += 1;
+    },time);
+    time+=2000;
+  }
+
+  function blue(){
+    setTimeout(function(){
+      imageOn("blue");
+      imageOff("red");
+      if(clear_flag%2==1){
+        clear_flag += 1;
+      }
+    },time);
+    time+=2000;
+  }
+
+  //クリア処理
+  function end(){
+    setTimeout(function(){
+      if(clear_flag==6){
+        clear();
+      }else{
+        not_clear();
+      }
+    },time);
+  }
+
+  function clear(){
+    if(window.confirm("クリアおめでとう!\n繰り返しブロックの使い方はわかりましたか？\n次の問題に行ってみましょう！")){
+      location.href= "light_question4.html";
+    }
+  }
+
+  function not_clear(){
+    alert("もう一度やりなおしてみましょう！\n繰り返しブロックをうまく使いましょう！");
+  }
+  </script>
+
+</body>
+
+</html>

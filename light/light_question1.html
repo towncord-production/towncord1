@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/lightbox.js"></script>
+
+  <script>
+    window.onload = function(){
+      $("#tutorial").trigger("click");
+    }
+  </script>
+
+  <script src = "../../blockly_compressed.js"></script>
+  <script src = "../../blocks_compressed.js"></script>
+  <script src = "../../javascript_compressed.js"></script>
+  <script src = "../../msg/js/ja.js"></script>
+  <script src = "../../blocks/light_block.js"></script>
+  <script src = "../../generators/javascript/light.js"></script>
+  <script src = "../../generators/javascript/logic.js"></script>
+
+  <link rel="stylesheet" href="../css/light.css">
+  <link rel="stylesheet" href="../css/lightbox.css">
+
+  <title>自分で作ったやつ</title>
+
+</head>
+
+<body>
+    <a href="../img/tutorial7.png" data-lightbox="image" id="tutorial"></a>
+    <a href="../img/tutorial8.png" data-lightbox="image"></a>
+
+    <p>
+      <button onclick="runCode()" class="next_btn" id="execute_btn">実行する▶︎</button>
+      <a href="#" class="next_btn" id="now">1</a>
+      <a href="light_question2.html" class="next_btn">2</a>
+      <a href="light_question3.html" class="next_btn">3</a>
+      <a href="light_question4.html" class="next_btn">4</a>
+      <a href="light_question5.html" class="next_btn">5</a>
+      <a href="../index.html" class="next_btn">トップへ</a>
+      <span>繰り返しブロックの練習です！繰り返しを使って端まで歩いて見ましょう！</span>
+    </p>
+
+<div class="workspace">
+  <div id="blocklyDiv" style="height:500px; width:500px;">    <block type="controls_if"></block></div>
+  <xml id="toolbox" style="display: none">
+     <category name= "はじめとおわり" colour="60">
+       <block type="start"></block>
+       <block type="end"></block>
+     </category>
+    <category name = "コントロール" colour="120">
+      <block type="controls_repeat_ext"></block>
+    </category>
+    <category name="数" colour="10">
+      <block type="math_number">
+        <field name="NUM">2</field>
+      </block>
+    </category>
+    <category name="機能" colour="230">
+      <block type="walk"></block>
+    </category>
+  </xml>
+
+</div>
+
+<div class="workspace">
+  <div class="move_space">
+    <img src ="../img/frame.png" name="frame" width=700 height=500>
+    <img src ="../img/walk.png" id="walk" class="human" width=150 height=150
+      style="position: absolute; left:50px; bottom:100px;">
+  </div>
+</div>
+
+<script>
+  //初期化
+  var time;
+  var clear_flag;
+  var start_flag;
+  var end_flag;
+  var x;
+  imageOn("walk");
+
+function imageOff(name){
+  document.getElementById(name).style.visibility = "hidden";
+}
+
+function imageOn(name){
+  document.getElementById(name).style.visibility = "visible";
+}
+
+
+  //コード読み込み設定
+  var workspace = Blockly.inject('blocklyDiv',{
+    toolbox:document.getElementById('toolbox'),
+  });
+  Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'),workspace);
+
+  //コード実行
+  function runCode() {
+    time = 1000;
+    clear_flag = 0;
+    start_flag = 0;
+    end_flag = 0;
+    x = 50;
+    imageOn("walk");
+    document.getElementById("walk").style.left= x + "px";
+    window.LoopTrap = 1000;
+    Blockly.JavaScript.INFINITE_LOOP_TRAP =
+        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    var pattern1 = "start_flag=1;"
+    var pattern2 = "end_flag=1;"
+    console.log(code);
+      if(code.indexOf(pattern1) > -1 && code.indexOf(pattern2) > -1){
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        try {
+          eval(code);
+        } catch (e) {
+          alert(e);
+        }
+      }else{
+        alert("はじめブロックとおわりブロックをつけましょう！")
+      }
+
+    }
+
+  function walk(){
+    imageOn("walk");
+    setTimeout(function(){
+      if(x<550){
+        x += 100;
+        document.getElementById("walk").style.left= x + "px";
+      }
+    },time);
+    time+=1000;
+  }
+
+  //クリア処理
+  function end(){
+    setTimeout(function(){
+      if(clear_flag==0){
+        clear();
+      }else{
+        not_clear();
+      }
+    },time);
+  }
+
+  function clear(){
+    if(window.confirm("うまく動かせましたか？\n準備ができたら早速問題に行ってみましょう！")){
+      location.href="light_question2.html";
+    }
+  }
+
+  function not_clear(){
+    alert("もう一度やりなおしてみましょう！");
+  }
+  </script>
+
+</body>
+
+</html>
