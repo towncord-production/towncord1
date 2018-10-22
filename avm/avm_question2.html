@@ -6,12 +6,6 @@
   <script src="../js/jquery-3.3.1.min.js"></script>
   <script src="../js/lightbox.js"></script>
 
-  <script>
-    window.onload = function(){
-      $("#tutorial").trigger("click");
-    }
-  </script>
-
   <script src = "../../blockly_compressed.js"></script>
   <script src = "../../blocks_compressed.js"></script>
   <script src = "../../javascript_compressed.js"></script>
@@ -23,7 +17,7 @@
   <link rel="stylesheet" href="../css/avm.css">
   <link rel="stylesheet" href="../lightbox.css">
 
-  <title>自分で作ったやつ</title>
+  <title>タウンコード|初級2</title>
 
 </head>
 
@@ -101,6 +95,7 @@
   var clear_flag = 0;
   var start_flag = 0;
   var end_flag = 0;
+  var t;
 
 function imageOff(name){
   document.getElementById(name).style.visibility = "hidden";
@@ -131,6 +126,7 @@ function imageOn(name){
     imageOn("AVM1");
     imageOff("AVM2");
     imageOff("AVM3");
+    t = 0;
     time = 1000;
     yen = 0;
     buy_flag = 0;
@@ -139,6 +135,8 @@ function imageOn(name){
     clear_flag = 0;
     start_flag = 0;
     end_flag = 0;
+    document.getElementById("coin_text").innerHTML="";
+    document.getElementById("not_change_text").innerHTML="";
     window.LoopTrap = 1000;
     Blockly.JavaScript.INFINITE_LOOP_TRAP =
         'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
