@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="../css/avm.css">
   <link rel="stylesheet" href="../css/lightbox.css">
 
-  <title>自分で作ったやつ</title>
+  <title>タウンコード|初級1</title>
 
 </head>
 
@@ -80,6 +80,8 @@
   var start_flag;
   var end_flag;
   var x;
+  var t;
+  var sum_x;
   imageOff("jump");
   imageOn("walk");
 
@@ -105,9 +107,13 @@ function imageOn(name){
     start_flag = 0;
     end_flag = 0;
     x = 50;
+    t=0;
+
+    sum_x = 50;
     imageOff("jump");
     imageOn("walk");
     document.getElementById("walk").style.left= x + "px";
+
     window.LoopTrap = 1000;
     Blockly.JavaScript.INFINITE_LOOP_TRAP =
         'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
@@ -131,6 +137,17 @@ function imageOn(name){
   function walk(){
       imageOff("jump");
       imageOn("walk");
+      if(x<550){
+        x += 100;
+        document.getElementById("walk").style.left= x + "px";
+      }
+  }
+
+  function jump(){
+    document.getElementById("jump").style.left= x + "px";
+    document.getElementById("jump").style.bottom= "140px";
+    imageOff("walk");
+    imageOn("jump");
   }
 
   //クリア処理
@@ -145,6 +162,8 @@ function imageOn(name){
   }
 
   function clear(){
+    console.log(t);
+    console.log(sum_x);
     if(window.confirm("うまく動かせましたか？\n準備ができたら早速問題に行ってみましょう！")){
       location.href="avm_question2.html";
     }
