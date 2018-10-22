@@ -175,3 +175,7 @@ display: inline-block;
   -moz-opacity:1;
   opacity:1;
 }
+
+blockquote{
+  background-color: lightgray;
+}
