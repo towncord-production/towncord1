@@ -37,10 +37,17 @@ Blockly.JavaScript['except'] = function(block) {
 };
 
 Blockly.JavaScript['give_off'] = function(block){
-  not_change = yen%10;
-  yen = yen/10;
-  yen = parseInt(yen);
-  yen = yen * 10;
+  if(cg == 0){
+    not_change = yen%10;
+    yen = yen/10;
+    yen = parseInt(yen);
+    yen = yen * 10;
+}else{
+  not_change = cg%10;
+  cg = cg/10;
+  cg = parseInt(cg);
+  cg = cg * 10;
+}
   var code = 'give_off();\n';
   return code;
 };
