@@ -1,12 +1,15 @@
+@charset "utf-8";
 /*ワークスペースの位置調整*/
+.workspace{
+    display: flex;
+    flex-direction: row;
+}
+
 .move_space {
     position: relative;
     width: 700px;
-    display: block;
+    display: inline-block;
     float:right;
-}
-.workspace{
-  display: inline-block;
 }
 
 .next_btn{
