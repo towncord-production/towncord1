@@ -60,16 +60,7 @@
         <p id="coin_text"></p>
       </div>
       <img src ="../img/push.png" alt="push" width="180" height="200" id="push">
-      <div class="not_change">
-        <img src ="../img/not_change.png" alt="not_change" width="120" height="120" id="not_change_visi">
-        <p id="not_change_text"></p>
-      </div>
       <img src ="../img/drink.png" alt="drink" width="180" height="200" id="drink">
-      <img src ="../img/bar.png" alt="bar" width="180" height="200" id="bar">
-      <div class="change">
-        <img src ="../img/change.png" alt="change" width="120" height="120" id="change_visi">
-        <p id ="change_text"></p>
-      </div>
     </div>
   </div>
 
@@ -89,9 +80,7 @@
   var time = 1000;
   var yen = 0;
   var buy_flag = 0;
-  var cg = 0;
   var t;
-  var not_change = 0;
   var clear_flag = 0;
   var start_flag = 0;
   var end_flag = 0;
@@ -108,8 +97,6 @@ function imageOn(name){
   imageOff("AVM2");
   imageOff("AVM3");
   imageOff("push");
-  imageOff("not_change_visi");
-  imageOff("change_visi");
   imageOff("drink");
 
 
@@ -130,15 +117,12 @@ function imageOn(name){
     time = 1000;
     yen = 0;
     buy_flag = 0;
-    cg = 0;
     t = 0;
-    not_change = 0;
     clear_flag = 0;
     start_flag = 0;
     end_flag = 0;
-    document.getElementById("change_text").innerHTML="";
-    document.getElementById("not_change_text").innerHTML="";
     document.getElementById("coin_text").innerHTML="";
+
     window.LoopTrap = 1000;
     Blockly.JavaScript.INFINITE_LOOP_TRAP =
         'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
@@ -168,25 +152,19 @@ function imageOn(name){
     time+=1000;
   }
 
-  function give_off(){
-    setTimeout(function(){
-      imageOn("not_change_visi");
-      document.getElementById("not_change_text").innerHTML="¥"+not_change;
-    },time);
-    time+=1000;
-  }
-
   function light_up(){
     setTimeout(function(){
       if(buy_flag==2){
         imageOff("AVM1");
         imageOff("AVM2");
         imageOn("AVM3");
+        clear_flag = 1;
       }
       if(buy_flag==1){
         imageOff("AVM1");
         imageOn("AVM2");
         imageOff("AVM3");
+        clear_flag = 1;
       }
     },time);
     time+=1000;
@@ -195,6 +173,9 @@ function imageOn(name){
   function push_button(){
     setTimeout(function(){
       imageOn("push");
+      if(clear_flag==1){
+        clear_flag = 2;
+      }
     },time);
     time+=1000;
   }
@@ -204,7 +185,9 @@ function imageOn(name){
     if(yen >= 100){
         imageOff("push");
         imageOn("drink");
-        clear_flag += 1;
+        if(clear_flag==2){
+          clear_flag = 3;
+        }
       }
     },time);
     time+=1000;
@@ -215,24 +198,17 @@ function imageOn(name){
       imageOn("AVM1");
       imageOff("AVM2");
       imageOff("AVM3");
-      clear_flag += 1;
+      if (clear_flag==3) {
+        clear_flag = 4;
+      }
     },time);
     time+=1000;
   }
-
-  function change(){
-    setTimeout(function(){
-      imageOn("change_visi");
-      document.getElementById("change_text").innerHTML="¥"+cg;
-    },time);
-    time+=1000;
-  }
-
 
   //クリア処理
   function end(){
     setTimeout(function(){
-      if(clear_flag==2){
+      if(clear_flag==4){
         clear();
       }else{
         not_clear();
