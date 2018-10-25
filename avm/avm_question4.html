@@ -13,77 +13,77 @@
 
   <link rel="stylesheet" href="../css/avm.css">
 
-  <title>自分で作ったやつ</title>
-
+  <title>タウンコード|初級4</title>
 </head>
 
 <body>
-
-    <p>
-      <button onclick="runCode()" class="next_btn" id="execute_btn">実行する▶︎</button>
-      <a href="avm_question1.html" class="next_btn">1</a>
-      <a href="avm_question2.html" class="next_btn">2</a>
-      <a href="avm_question3.html" class="next_btn">3</a>
-      <a href="#" class="next_btn" id="now">4</a>
-      <a href="avm_question5.html" class="next_btn">5</a>
-      <a href="../index.html" class="next_btn">トップへ</a>
-      <span>飲み物を買った後に、お釣りが出るようにしましょう！お釣りが出る金額を入れてみましょう！</span>
-    </p>
-
-<div class="workspace">
-
-  <div id="blocklyDiv" style="height:500px; width:500px;"></div>
-
-  <xml id="toolbox" style="display: none">
-     <category name= "はじめとおわり" colour="60">
-       <block type="start"></block>
-       <block type="end"></block>
-     </category>
-    <category name = "コントロール" colour="120">
-      <block type="controls_if"></block>
-    </category>
-    <category name="数" colour="10">
-      <block type="math_number">
-        <field name="NUM">123</field>
-      </block>
-    </category>
-    <category name="機能" colour="230">
-      <block type="money"></block>
-      <block type="light_up"></block>
-      <block type="change"></block>
-      <block type="push_button"></block>
-      <block type="drink_get"></block>
-      <block type="light_off"></block>
-      <block type="bar"></block>
-      <block type="can_buy"></block>
-      <block type="if_light_up"></block>
-    </category>
-  </xml>
-
-
-</div>
-
-<div class="workspace">
-<div class="move_space">
-  <img src ="../img/frame.png" name="frame" width=700 height=500>
-  <img src ="../img/AutoVenderMachine.png" alt="AVM" width="150" height="300" class="AVM" id="AVM1">
-  <img src ="../img/AutoVenderMachine2.png" alt="AVM" width="150" height="300" class="AVM" id="AVM2">
-  <img src ="../img/AutoVenderMachine3.png" alt="AVM" width="150" height="300" class="AVM" id="AVM3">
-  <div class="coin">
-    <img src ="../img/coin.png" alt="coin" width="100" height="100" id="coin_visi">
-    <p id="coin_text"></p>
+  <div class="question">
+    <span>問題</span>
+    <p>飲み物を買った後に、お釣りが出るようにしましょう！お釣りが出る金額を入れてみましょう！</p>
   </div>
-  <img src ="../img/push.png" alt="push" width="180" height="200" id="push">
-  <div class="not_change">
-    <img src ="../img/not_change.png" alt="not_change" width="120" height="120" id="not_change_visi">
-    <p id="not_change_text"></p>
+
+  <div class="workspace">
+
+    <div id="blocklyDiv" style="height:450px; width:500px;"></div>
+
+    <xml id="toolbox" style="display: none">
+      <category name= "はじめとおわり" colour="60">
+        <block type="start"></block>
+        <block type="end"></block>
+      </category>
+      <category name = "コントロール" colour="330">
+        <block type="controls_if"></block>
+      </category>
+      <category name="数" colour="10">
+        <block type="math_number">
+          <field name="NUM">123</field>
+        </block>
+      </category>
+      <category name="機能" colour="230">
+        <block type="money"></block>
+        <block type="light_up"></block>
+        <block type="change"></block>
+        <block type="push_button"></block>
+        <block type="drink_get"></block>
+        <block type="light_off"></block>
+        <block type="bar"></block>
+        <block type="can_buy"></block>
+        <block type="if_light_up"></block>
+      </category>
+    </xml>
+
+    <div class="move_space">
+      <img src ="../img/frame.png" name="frame" width=700 height=450>
+      <img src ="../img/AutoVenderMachine.png" alt="AVM" width="150" height="300" class="AVM" id="AVM1">
+      <img src ="../img/AutoVenderMachine2.png" alt="AVM" width="150" height="300" class="AVM" id="AVM2">
+      <img src ="../img/AutoVenderMachine3.png" alt="AVM" width="150" height="300" class="AVM" id="AVM3">
+      <div class="coin">
+        <img src ="../img/coin.png" alt="coin" width="100" height="100" id="coin_visi">
+        <p id="coin_text"></p>
+      </div>
+      <img src ="../img/push.png" alt="push" width="180" height="200" id="push">
+      <div class="not_change">
+        <img src ="../img/not_change.png" alt="not_change" width="120" height="120" id="not_change_visi">
+        <p id="not_change_text"></p>
+      </div>
+      <img src ="../img/drink.png" alt="drink" width="180" height="200" id="drink">
+      <img src ="../img/bar.png" alt="bar" width="180" height="200" id="bar">
+      <div class="change">
+        <img src ="../img/change.png" alt="change" width="120" height="120" id="change_visi">
+        <p id ="change_text"></p>
+      </div>
+    </div>
   </div>
-  <img src ="../img/drink.png" alt="drink" width="180" height="200" id="drink">
-  <img src ="../img/bar.png" alt="bar" width="180" height="200" id="bar">
-  <div class="change">
-    <img src ="../img/change.png" alt="change" width="120" height="120" id="change_visi">
-    <p id ="change_text"></p>
-  </div>
+
+  <span>
+    <button onclick="runCode()" class="next_btn" id="execute_btn">実行する▶︎</button>
+    <a href="avm_question1.html" class="next_btn">1</a>
+    <a href="avm_question2.html" class="next_btn">2</a>
+    <a href="avm_question3.html" class="next_btn">3</a>
+    <a href="#" class="next_btn" id="now">4</a>
+    <a href="avm_question5.html" class="next_btn">5</a>
+    <a href="../index.html" class="next_btn">トップへ</a>
+  </span>
 
 
   <script>
@@ -92,6 +92,7 @@
   var yen = 0;
   var buy_flag = 0;
   var cg = 0;
+  var t;
   var not_change = 0;
   var clear_flag = 0;
   var start_flag = 0;
@@ -133,10 +134,14 @@ function imageOn(name){
     yen = 0;
     buy_flag = 0;
     cg = 0;
+    t = 0;
     not_change = 0;
     clear_flag = 0;
     start_flag = 0;
     end_flag = 0;
+    document.getElementById("change_text").innerHTML="";
+    document.getElementById("not_change_text").innerHTML="";
+    document.getElementById("coin_text").innerHTML="";
     window.LoopTrap = 1000;
     Blockly.JavaScript.INFINITE_LOOP_TRAP =
         'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
