@@ -96,7 +96,11 @@
   var cg = 0;
   var t;
   var not_change = 0;
-  var clear_flag = 0;
+  var clear_flagA;
+  var clear_flagB;
+  var clear_flagC;
+  var clear_flagD;
+  var clear_flagE;
   var start_flag = 0;
   var end_flag = 0;
 
@@ -139,7 +143,11 @@ function imageOn(name){
     cg = 0;
     t = 0;
     not_change = 0;
-    clear_flag = 0;
+    clear_flagA = 0;
+    clear_flagB = 0;
+    clear_flagC = 0;
+    clear_flagD = 0;
+    clear_flagE = 0;
     start_flag = 0;
     end_flag = 0;
     document.getElementById("change_text").innerHTML="";
@@ -179,7 +187,7 @@ function imageOn(name){
       imageOn("not_change_visi");
       document.getElementById("not_change_text").innerHTML="¥"+not_change;
       if(not_change != 0){
-        clear_flag += 1;
+          clear_flagE = 1;
       }
     },time);
     time+=1000;
@@ -191,11 +199,13 @@ function imageOn(name){
         imageOff("AVM1");
         imageOff("AVM2");
         imageOn("AVM3");
+        clear_flagA = 1;
       }
       if(buy_flag==1){
         imageOff("AVM1");
         imageOn("AVM2");
         imageOff("AVM3");
+        clear_flagA = 1;
       }
     },time);
     time+=1000;
@@ -204,6 +214,10 @@ function imageOn(name){
   function push_button(){
     setTimeout(function(){
       imageOn("push");
+      imageOff("drink");
+      if(clear_flagA==1){
+        clear_flagB = 1;
+      }
     },time);
     time+=1000;
   }
@@ -213,7 +227,9 @@ function imageOn(name){
       if(yen>=100){
       imageOff("push");
       imageOn("drink");
-      clear_flag += 1;
+      if(clear_flagB==1){
+        clear_flagC = 1;
+      }
     }
     },time);
     time+=1000;
@@ -224,7 +240,9 @@ function imageOn(name){
       imageOn("AVM1");
       imageOff("AVM2");
       imageOff("AVM3");
-      clear_flag += 1;
+      if(clear_flagB==1){
+        clear_flagD = 1;
+      }
     },time);
     time+=1000;
   }
@@ -240,7 +258,7 @@ function imageOn(name){
   //クリア処理
   function end(){
     setTimeout(function(){
-      if(clear_flag==3){
+      if(clear_flagA==1 && clear_flagB==1 && clear_flagC==1 && clear_flagD==1 && clear_flagE==1){
         clear();
       }else{
         not_clear();
