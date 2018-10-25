@@ -81,7 +81,10 @@
   var yen = 0;
   var buy_flag = 0;
   var t;
-  var clear_flag = 0;
+  var clear_flagA;
+  var clear_flagB;
+  var clear_flagC;
+  var clear_flagD;
   var start_flag = 0;
   var end_flag = 0;
 
@@ -118,7 +121,10 @@ function imageOn(name){
     yen = 0;
     buy_flag = 0;
     t = 0;
-    clear_flag = 0;
+    clear_flagA = 0;
+    clear_flagB = 0;
+    clear_flagC = 0;
+    clear_flagD = 0;
     start_flag = 0;
     end_flag = 0;
     document.getElementById("coin_text").innerHTML="";
@@ -158,13 +164,13 @@ function imageOn(name){
         imageOff("AVM1");
         imageOff("AVM2");
         imageOn("AVM3");
-        clear_flag = 1;
+        clear_flagA = 1;
       }
       if(buy_flag==1){
         imageOff("AVM1");
         imageOn("AVM2");
         imageOff("AVM3");
-        clear_flag = 1;
+        clear_flagA = 1;
       }
     },time);
     time+=1000;
@@ -173,8 +179,8 @@ function imageOn(name){
   function push_button(){
     setTimeout(function(){
       imageOn("push");
-      if(clear_flag==1){
-        clear_flag = 2;
+      if(clear_flagA==1){
+        clear_flagB = 1;
       }
     },time);
     time+=1000;
@@ -185,8 +191,8 @@ function imageOn(name){
     if(yen >= 100){
         imageOff("push");
         imageOn("drink");
-        if(clear_flag==2){
-          clear_flag = 3;
+        if(clear_flagB==1){
+          clear_flagC = 1;
         }
       }
     },time);
@@ -198,8 +204,8 @@ function imageOn(name){
       imageOn("AVM1");
       imageOff("AVM2");
       imageOff("AVM3");
-      if (clear_flag==3) {
-        clear_flag = 4;
+      if(clear_flagB==1){
+        clear_flagD = 1;
       }
     },time);
     time+=1000;
@@ -208,7 +214,7 @@ function imageOn(name){
   //クリア処理
   function end(){
     setTimeout(function(){
-      if(clear_flag==4){
+      if(clear_flagA==1 && clear_flagB==1 && clear_flagC==1 && clear_flagD==1){
         clear();
       }else{
         not_clear();
