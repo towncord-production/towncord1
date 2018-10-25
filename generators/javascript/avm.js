@@ -67,16 +67,16 @@ Blockly.JavaScript['if_light_up'] = function(block) {
 };
 
 Blockly.JavaScript['push_button'] = function(block) {
-  var code = 'push_button();\n';
-  return code;
-};
-
-Blockly.JavaScript['drink_get'] = function(block) {
   if(yen >= 150){
     cg = yen - 150;
   }else if(yen >=100 && yen <150){
     cg = yen - 100;
   }
+  var code = 'push_button();\n';
+  return code;
+};
+
+Blockly.JavaScript['drink_get'] = function(block) {
   var code = 'drink_get();\n';
   return code;
 };
