@@ -36,7 +36,7 @@
 
 <body>
   <header id="header">
-    <h1>ようこそタウンコードへ！</h1>
+    <h1>ようこそ<br class="br-sp">タウンコードへ！</h1>
     <nav>
       <span><a href="#top"class="menu">トップ</a></span>
       <span><a href="#how_to"class="menu">遊び方</a></span>
@@ -50,21 +50,46 @@
     <div id="wrapper">
       <div class="link1">
           <a href="avm/avm_question1.html">
-            <img src="img/AutoVenderMachine.png" width="200" height="300">
-            <img src="img/link1.png" id="l1" width="300" height="400">
+            <img src="img/AutoVenderMachine.png" id="avm">
           </a>
+          <div class="explain">
+          <h3>初級編</h3><br>
+          自販機の機能を<br>
+          作ってみましょう！<br>
+          ＜出てくる知識＞<br>
+          ・順次処理<br>
+          ・条件分岐<br>
+          <a href="avm/avm_question1.html" class="square_btn">▶︎プレイする</a>
+          </div>
       </div>
       <div class="link2">
           <a href="kaisatu/kaisatu_question1.html">
-            <img src="img/kaisatu_open.png" width="250" height="300">
-            <img src="img/link2.png" id="l2" width="300" height="400">
+            <img src="img/kaisatu_open.png" id="kaisatu">
           </a>
+          <div class="explain">
+          <h3>中級編</h3><br>
+          改札の機能を<br>
+          作ってみましょう！<br>
+          ＜出てくる知識＞<br>
+          ・順次処理<br>
+          ・条件分岐<br>
+          <a href="kaisatu/kaisatu_question1.html" class="square_btn">▶︎プレイする</a>
+          </div>
       </div>
       <div class="link3">
           <a href="light/light_question1.html">
-            <img src="img/all_off.png" width="160" height="280">
-            <img src="img/link3.png" id="l3" width="300" height="400">
+            <img src="img/all_off.png" id="light">
           </a>
+          <div class="explain">
+          <h3>上級編</h3><br>
+          信号機の機能を<br>
+          作ってみましょう！<br>
+          ＜出てくる知識＞<br>
+          ・順次処理<br>
+          ・条件分岐<br>
+          ・繰り返し<br>
+          <a href="light/light_question1.html" class="square_btn">▶︎プレイする</a>
+          </div>
       </div>
   </div>
   <script>
@@ -76,9 +101,9 @@
 <article id="how_to">
   <h2>遊び方</h2>
   <h3>画面の見方</h3><br>
-  <img src="img/tutorial.png" width="900" height="500"><br>
+  <img src="img/tutorial.png" id="tutorial1"><br>
   <h3>ブロックの使い方</h3><br>
-  <img src="img/tutorial-2.png" width="500" height="500">
+  <img src="img/tutorial-2.png" id="tutorial2">
 </article>
 
 <article id="about">
@@ -86,19 +111,19 @@
   <h3>この作品について</h3>
   <br>
   <section>
-    <p>このタウンコードは「プログラミング初心者の小学校教員向けのプログラミング入門教材」になります。</p>
-    <p>プログラミングとはなにかを少しでもわかってもらえるよう、</p>
-    <p>ブロックをつかった簡単なプログラミングを体験できるサイトになります。</p>
-    <p>また、「どこまでできるようになればいいの？」「生徒の成績はどんな基準で評価すればいいの？」といった</p>
-    <p>疑問にも沿えるよう、後述する能力評価基準を基に問題作成しました。</p>
+    <p>このタウンコードは「プログラミング初心者の小学校教員向けのプログラミング入門教材」になります。<br class="br-lp">
+    プログラミングとはなにかを少しでもわかってもらえるよう、<br class="br-lp">
+    ブロックをつかった簡単なプログラミングを体験できるサイトになります。<br class="br-lp">
+    また、「どこまでできるようになればいいの？」「生徒の成績はどんな基準で評価すればいいの？」といった<br class="br-lp">
+    疑問にも沿えるよう、後述する能力評価基準を基に問題作成しました。</p>
   </section>
   <section>
     <h3>背景</h3>
     <br>
-    <p>2020年に小学校で本格的にプログラミング教育が始まる中、</p>
-    <p>プログラミングがどのようなものかわからず不安を抱えている方は多くいます。</p>
-    <p>「どんな教材を準備すればいいの？」「プログラミングってよくわからない！」「どうやって成績評価するの？」</p>
-    <p>そのような不安や疑問に対して、一つのアンサーになるようなサイトになればと思います。</p>
+    <p>2020年に小学校で本格的にプログラミング教育が始まる中、<br class="br-lp">
+    プログラミングがどのようなものかわからず不安を抱えている方は多くいます。<br class="br-lp">
+    「どんな教材を準備すればいいの？」「プログラミングってよくわからない！」「どうやって成績評価するの？」<br class="br-lp">
+    そのような不安や疑問に対して、一つのアンサーになるようなサイトになればと思います。</p>
   </section>
   <section>
     <h3>評価基準について</h3>
@@ -108,10 +133,10 @@
       株式会社ベネッセコーポレーションとNPO法人CANVASは共にプログラミング（「プログラミング的思考」の育成に資する学習活動）
       で育成を目指す資質・能力、および、それを評価するための規準作りに取り組んでいます。（プログラミングで育成する資質・能力の評価規準運営委員会ホームページより引用）
     </blockquote>
-    <p>本サイトはこちらの評価基準を基に、求められる技能を教員の皆様にも習得していただくために作成いたしました。</p>
-    <p>プログラミング技術ってどこまで習得すればいいの？</p>
-    <p>実際生徒に教えていくにあたってどう評価していけばいいの？</p>
-    <p>そのような悩みを持っている方はぜひ、こちらの評価基準についても参考にしていただければと思います。</p>
+    <p>本サイトはこちらの評価基準を基に、求められる技能を教員の皆様にも習得していただくために作成いたしました。<br class="br-lp">
+    プログラミング技術ってどこまで習得すればいいの？<br class="br-lp">
+    実際生徒に教えていくにあたってどう評価していけばいいの？<br class="br-lp">
+    そのような悩みを持っている方はぜひ、こちらの評価基準についても参考にしていただければと思います。</p>
   </section>
 </article>
 
