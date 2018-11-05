@@ -82,7 +82,7 @@ Blockly.Blocks['give_off'] = {
 Blockly.Blocks['can_buy'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("購入金額を超えたら");
+        .appendField("入れたお金＞飲み物の金額");
     this.setOutput(true, null);
     this.setColour(230);
  this.setTooltip("");
@@ -93,7 +93,7 @@ Blockly.Blocks['can_buy'] = {
 Blockly.Blocks['light_up'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ランプがつく");
+        .appendField("飲料のボタンが点灯");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -116,7 +116,7 @@ Blockly.Blocks['if_light_up'] = {
 Blockly.Blocks['push_button'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ボタンを押す");
+        .appendField("選んでボタンを押す");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -140,7 +140,7 @@ Blockly.Blocks['drink_get'] = {
 Blockly.Blocks['light_off'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("ランプが消える");
+        .appendField("ボタン消灯");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -152,7 +152,7 @@ Blockly.Blocks['light_off'] = {
 Blockly.Blocks['bar'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("おつりバーを引いたら");
+        .appendField("差額が出たら");
     this.setOutput(true, null);
     this.setColour(230);
  this.setTooltip("");
