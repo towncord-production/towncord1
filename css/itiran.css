@@ -1,4 +1,8 @@
+/*画面サイズ 420px以上から適用*/
+@media screen and (min-width: 420px){
+
 body{
+  width:100%;
   margin:5px;
   padding:0;
   min-height:100%;
@@ -13,8 +17,14 @@ header{
   border-bottom: 2px dashed;
 }
 
+.br-sp { display:none; }
+
 nav{
   display:inline;
+}
+
+nav span{
+  display: inline;
 }
 
 .menu{
@@ -83,6 +93,15 @@ border-bottom: solid 3px #d7d7d7;
 display: inline-block;
 }
 
+img#tutorial1{
+  width:900px;
+  height:500px;
+}
+img#tutorial2{
+  width:500px;
+  height:500px;
+}
+
 #footer{
   /*position:absolute;*/
   text-align: center;
@@ -122,6 +141,19 @@ display: inline-block;
   justify-content: space-evenly;
 }
 
+img#avm{
+  width:200px;
+  height:300px;
+}
+img#kaisatu{
+  width:250px;
+  height:300px;
+}
+img#light{
+  width:160px;
+  height:280px;
+}
+
 .link1{
   position: relative;
   margin-right: 80px;
@@ -135,47 +167,212 @@ display: inline-block;
   margin-right: 80px;
 }
 
-#l1{
-  position: absolute;
-  top:-50px;
-  left:-50px;
-  filter: alpha(opacity=0);
-  -moz-opacity:0;
-  opacity:0;
-}
-#l1:hover{
-  filter: alpha(opacity=100);
-  -moz-opacity:1;
-  opacity:1;
-}
-#l2{
-  position: absolute;
-  top:-50px;
-  left:-50px;
-  filter: alpha(opacity=0);
-  -moz-opacity:0;
-  opacity:0;
-}
-#l2:hover{
-  filter: alpha(opacity=100);
-  -moz-opacity:1;
-  opacity:1;
-}
-
-#l3{
-  position: absolute;
-  top:-50px;
-  left:-50px;
-  filter: alpha(opacity=0);
-  -moz-opacity:0;
-  opacity:0;
-}
-#l3:hover{
-  filter: alpha(opacity=100);
-  -moz-opacity:1;
-  opacity:1;
+.square_btn {
+    margin-top: 10px; 
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #fd9535;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px #d27d00;/*線色*/
 }
 
 blockquote{
   background-color: lightgray;
+}
+
+}
+
+
+/*画面サイズ 420px未満適用*/
+@media screen and (max-width: 420px) {
+
+  body{
+    width:100%;
+    margin:5px;
+    padding:0;
+    min-height:100%;
+    height:100%;
+    position:relative;
+  }
+
+  header{
+    position: inherit;
+    width: 100%;
+    top:0;
+    border-bottom: 2px dashed;
+  }
+
+.br-lp { display:none; }
+
+  nav{
+    display: block;
+  }
+
+  nav span{
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .menu{
+    padding: .75em 2em;
+    border: 2px dashed #333;
+    border-radius: .4em 2em .5em 3em/3em .5em 2em .5em;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+  }
+  .menu:hover {
+    color:#ff198c;
+    border-color: #ff198c;
+  }
+
+  #main{
+    margin-top:70px;
+    margin-bottom: 70px;
+  }
+
+  h1 {
+  position: relative;
+  text-align: center;
+  color: #333333;
+  margin: 47px 0;
+  text-shadow: 0 0 2px white;
+  }
+
+  h1:before {
+  content: "";
+  position: absolute;
+  background: #a9e1ff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: 50%;
+  border: dashed 1px white;
+  left: 50%;
+  -moz-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  box-shadow: 0px 0px 0px 5px #a9e1ff;
+  }
+
+  h2 {
+    border-bottom: solid 3px skyblue;
+    position: relative;
+  }
+  h2:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px #ffc778;
+  bottom: -3px;
+  width: 30%;
+  }
+
+  h3 {
+  padding: 0.4em 0.5em;
+  color: #494949;
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6;
+  border-bottom: solid 3px #d7d7d7;
+  display: inline-block;
+  }
+
+  img#tutorial1{
+    width:300px;
+    height:240px;
+  }
+  img#tutorial2{
+    width:300px;
+    height:300px;
+  }
+
+  #footer{
+    /*position:absolute;*/
+    text-align: center;
+    width:100%;
+    bottom:0;
+    height: 50px;
+    left:0;
+    right:0;
+    color: white;
+    background-color: #87cefa;
+  }
+
+  #go_top{
+    position: fixed;
+    right:20px;
+    bottom: 30px;
+    padding: 0.5em 1em;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  #go_top:active {
+    -ms-transform: translateY(4px);
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+  }
+
+
+img#avm{
+  width:150px;
+  height:180px;
+}
+img#kaisatu{
+  width:150px;
+  height:200px;
+}
+img#light{
+  width:110px;
+  height:200px;
+}
+
+.link1{
+  position: relative;
+  margin-bottom: 100px;
+}
+.link2{
+  position: relative;
+  margin-bottom: 100px;
+}
+.link3{
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.explain{
+  margin-top: -20px;
+  float: right;
+}
+
+.square_btn {
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #fd9535;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px #d27d00;/*線色*/
+}
+
+  blockquote{
+    background-color: lightgray;
+  }
+
 }
