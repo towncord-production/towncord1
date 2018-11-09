@@ -1,15 +1,30 @@
 @charset "utf-8";
+/*画面サイズ 420px以上から適用*/
+@media screen and (min-width: 420px){
 /*ワークスペースの位置調整*/
+body{
+  width: 100%;
+}
+
 .workspace{
     display: flex;
     flex-direction: row;
 }
 
+#frame{
+  width: 700px;
+  height:450px;
+}
+
 .move_space {
     position: relative;
-    width: 700px;
     display: inline-block;
     float:right;
+}
+
+#blocklyDiv{
+  height:450px;
+  width:500px;
 }
 
 .next_btn{
@@ -145,4 +160,21 @@
   position: absolute;
   top:70px;
   left:70px;
+}
+
+#min_text{
+  position: absolute;
+  font-size: 20px;
+  top:80px;
+  right:320px;
+  background-color: white;
+}
+
+#set_text{
+  position: absolute;
+  font-size: 20px;
+  top:150px;
+  right:320px;
+  background-color: white;
+}
 }
