@@ -29,6 +29,17 @@ Blockly.JavaScript['money'] = function(block) {
   return code;
 };
 
+
+Blockly.JavaScript['set_drink'] = function(block) {
+  kakaku = Blockly.JavaScript.valueToCode(block, 'kakaku', Blockly.JavaScript.ORDER_ATOMIC);
+  if(kakaku < 100){
+    error = 1;
+  }
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'set_drink();\n';
+  return code;
+};
+
 Blockly.JavaScript['except'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = yen+' % 10 != 0\n';
@@ -54,8 +65,8 @@ Blockly.JavaScript['give_off'] = function(block){
 
 Blockly.JavaScript['can_buy'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  if (yen >= 150){buy_flag = 2;}
-  else if (yen >= 100 && yen < 150){buy_flag = 1;}
+  if (yen >= kakaku){buy_flag = 2;}
+  else if (yen >= 100 && yen < kakaku){buy_flag = 1;}
   var code = buy_flag + '> 0\n';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
@@ -74,9 +85,10 @@ Blockly.JavaScript['if_light_up'] = function(block) {
 };
 
 Blockly.JavaScript['push_button'] = function(block) {
-  if(yen >= 150){
-    cg = yen - 150;
-  }else if(yen >=100 && yen <150){
+  console.log(kakaku);
+  if(yen >= kakaku){
+    cg = yen - kakaku;
+  }else if(yen >=100 && yen <kakaku){
     cg = yen - 100;
   }
   var code = 'push_button();\n';
@@ -85,6 +97,11 @@ Blockly.JavaScript['push_button'] = function(block) {
 
 Blockly.JavaScript['drink_get'] = function(block) {
   var code = 'drink_get();\n';
+  return code;
+};
+
+Blockly.JavaScript['drink_get2'] = function(block) {
+  var code = 'drink_get2();\n';
   return code;
 };
 
@@ -102,6 +119,7 @@ Blockly.JavaScript['change'] = function(block) {
   var code = 'change();\n';
   return code;
 };
+
 
 Blockly.JavaScript['start'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
