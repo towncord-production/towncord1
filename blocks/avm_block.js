@@ -82,7 +82,7 @@ Blockly.Blocks['give_off'] = {
 Blockly.Blocks['can_buy'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("入れたお金＞飲み物の金額");
+        .appendField("入れたお金≧飲み物の金額");
     this.setOutput(true, null);
     this.setColour(230);
  this.setTooltip("");
@@ -93,7 +93,7 @@ Blockly.Blocks['can_buy'] = {
 Blockly.Blocks['light_up'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("飲料のボタンが点灯");
+        .appendField("ボタン点灯");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -116,7 +116,7 @@ Blockly.Blocks['if_light_up'] = {
 Blockly.Blocks['push_button'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("選んでボタンを押す");
+        .appendField("ボタンを押す");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -129,6 +129,18 @@ Blockly.Blocks['drink_get'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("飲み物が落ちてくる");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['drink_get2'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("飲み物が落ちて消灯");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -164,6 +176,23 @@ Blockly.Blocks['change'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("おつりを出す");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['set_drink'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("飲み物の金額を");
+    this.appendValueInput("kakaku")
+        .setCheck(null);
+    this.appendDummyInput()
+        .appendField("円にする");
+    this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
