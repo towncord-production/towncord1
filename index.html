@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="css/itiran.css">
   <script src="js/jquery-3.3.1.min.js"></script>
   <script>
+    function sorry(){
+      window.alert("現在初級編以外に関しましては工事中となっております\n大変申し訳ございません");
+    }
         $(function(){
           // スムーズスクロール
           $('a[href^="#"]').click(function() {
@@ -63,7 +66,7 @@
           </div>
       </div>
       <div class="link2">
-          <a href="kaisatu/kaisatu_question1.html">
+          <a href="#" onclick="sorry()">
             <img src="img/kaisatu_open.png" id="kaisatu">
           </a>
           <div class="explain">
@@ -73,11 +76,11 @@
           ＜出てくる知識＞<br>
           ・順次処理<br>
           ・条件分岐<br>
-          <a href="kaisatu/kaisatu_question1.html" class="square_btn">▶︎プレイする</a>
+          <a href="#" class="square_btn" onclick="sorry()">▶︎プレイする</a>
           </div>
       </div>
       <div class="link3">
-          <a href="light/light_question1.html">
+          <a href="#" onclick="sorry()">
             <img src="img/all_off.png" id="light">
           </a>
           <div class="explain">
@@ -88,7 +91,7 @@
           ・順次処理<br>
           ・条件分岐<br>
           ・繰り返し<br>
-          <a href="light/light_question1.html" class="square_btn">▶︎プレイする</a>
+          <a href="#" class="square_btn" onclick="sorry()">▶︎プレイする</a>
           </div>
       </div>
   </div>
